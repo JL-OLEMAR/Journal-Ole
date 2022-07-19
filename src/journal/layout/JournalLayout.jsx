@@ -1,18 +1,17 @@
-import { Box } from '@mui/material'
+import { Box, Toolbar } from '@mui/material'
 
-import { Navbar } from '../components'
+import { Navbar, SideBar } from '../components'
 
-const drawerWidth = 240 // px - width of drawer, for show and hide sidebar
+const drawerWidth = 280 // px - width of drawer, for show and hide sidebar
 
 export function JournalLayout({ children }) {
   return (
     <Box sx={{ display: 'flex' }}>
       <Navbar drawerWidth={drawerWidth} />
-
-      {/* Sidebar drawerWidth */}
+      <SideBar drawerWidth={drawerWidth} />
 
       <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
-        {/* Toolbar */}
+        <Toolbar />
         {children}
       </Box>
     </Box>

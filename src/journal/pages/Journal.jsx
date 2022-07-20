@@ -1,5 +1,5 @@
 import { JournalLayout } from '../layout'
-import { NothingSelectView } from '../components'
+import { Note, NothingSelect } from '../components'
 
 export function Journal() {
   return (
@@ -12,7 +12,8 @@ export function Journal() {
         officia. Quis sint fugiat do amet ad qui irure minim ea aliqua.
       </Typography> */}
 
-      <NothingSelectView />
+      {/* <NothingSelect /> */}
+      <Note />
 
       {/* NoteView */}
     </JournalLayout>

@@ -1,3 +1,4 @@
 export { Navbar } from './Navbar.jsx'
-export { NothingSelectView } from './NothingSelectView.jsx'
+export { Note } from './Note.jsx'
+export { NothingSelect } from './NothingSelect.jsx'
 export { SideBar } from './SideBar.jsx'

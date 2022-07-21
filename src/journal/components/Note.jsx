@@ -1,6 +1,8 @@
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import { SaveOutlined } from '@mui/icons-material'
 
+import { ImageGallery } from './ImageGallery.jsx'
+
 export function Note() {
   return (
     <Grid
@@ -43,7 +45,7 @@ export function Note() {
         />
       </Grid>
 
-      {/* Image gallery */}
+      <ImageGallery />
     </Grid>
   )
 }

@@ -1,4 +1,5 @@
-import { useDispatch } from 'react-redux'
+import { useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { Google } from '@mui/icons-material'
@@ -8,22 +9,25 @@ import { checkingAuthentication, startGoogleSignIn } from '../../store/auth'
 import { Auth } from '../layout'
 
 export function Login() {
+  const { status } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
 
   const { email, password, onInputChange } = useForm({
-    email: 'test1@test.com',
-    password: '123456'
+    email: '',
+    password: ''
   })
 
-  const onSubmit = (evt) => {
-    evt.preventDefault()
+  // for disable button when status is checking
+  const isAuthenticating = useMemo(() => status === 'checking', [status])
 
-    console.log({ email, password })
+  const onSubmit = (evt) => {
+    console.log('login with email')
+    evt.preventDefault()
     dispatch(checkingAuthentication())
   }
 
   const onGoogleSignIn = () => {
-    console.log('SignIn with google :)')
+    console.log('login with google')
     dispatch(startGoogleSignIn())
   }
 
@@ -57,13 +61,19 @@ export function Login() {
 
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item sm={6} xs={12}>
-              <Button fullWidth type='submit' variant='contained'>
+              <Button
+                fullWidth
+                disabled={isAuthenticating}
+                type='submit'
+                variant='contained'
+              >
                 Login
               </Button>
             </Grid>
             <Grid item sm={6} xs={12}>
               <Button
                 fullWidth
+                disabled={isAuthenticating}
                 type='button'
                 variant='contained'
                 onClick={onGoogleSignIn}

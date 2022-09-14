@@ -10,13 +10,7 @@ export async function signInWithGoogle() {
     // const credentials = GoogleAuthProvider.credentialFromResult(result)
     const { displayName, email, photoURL, uid } = result.user
 
-    return {
-      ok: true,
-      displayName,
-      email,
-      photoURL,
-      uid
-    }
+    return { ok: true, displayName, email, photoURL, uid }
   } catch (error) {
     // const errorCode = error.errorCode
     const errorMessage = error.message

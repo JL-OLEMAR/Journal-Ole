@@ -1,19 +1,35 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 
+import { useForm } from '../../hooks'
 import { Auth } from '../layout'
 
+const FormData = {
+  displayName: 'Test1',
+  email: 'test1@test.com',
+  password: '123456'
+}
+
 export function Register() {
+  const { displayName, email, password, onInputChange } = useForm(FormData)
+
+  const onSubmit = (evt) => {
+    evt.preventDefault()
+  }
+
   return (
     <Auth title='Sign up'>
-      <form>
+      <form onSubmit={onSubmit}>
         <Grid container>
           <Grid item sx={{ mt: 2 }} xs={12}>
             <TextField
               fullWidth
               label='Name'
+              name='displayName'
               placeholder='Type your name'
               type='text'
+              value={displayName}
+              onChange={onInputChange}
             />
           </Grid>
 
@@ -21,8 +37,11 @@ export function Register() {
             <TextField
               fullWidth
               label='E-mail'
+              name='email'
               placeholder='Type your email'
               type='email'
+              value={email}
+              onChange={onInputChange}
             />
           </Grid>
 
@@ -30,14 +49,17 @@ export function Register() {
             <TextField
               fullWidth
               label='Password'
+              name='password'
               placeholder='Type your password'
               type='password'
+              value={password}
+              onChange={onInputChange}
             />
           </Grid>
 
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12}>
-              <Button fullWidth variant='contained'>
+              <Button fullWidth type='submit' variant='contained'>
                 Create an account
               </Button>
             </Grid>

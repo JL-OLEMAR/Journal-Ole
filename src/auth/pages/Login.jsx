@@ -21,13 +21,11 @@ export function Login() {
   const isAuthenticating = useMemo(() => status === 'checking', [status])
 
   const onSubmit = (evt) => {
-    console.log('login with email')
     evt.preventDefault()
     dispatch(checkingAuthentication())
   }
 
   const onGoogleSignIn = () => {
-    console.log('login with google')
     dispatch(startGoogleSignIn())
   }
 

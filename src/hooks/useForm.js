@@ -6,6 +6,7 @@ export function useForm(initialForm = {}, formValidations = {}) {
 
   useEffect(() => {
     createValidators()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formState])
 
   const onInputChange = ({ target }) => {
@@ -25,6 +26,7 @@ export function useForm(initialForm = {}, formValidations = {}) {
     const formCheckedValues = {}
 
     for (const formField of Object.keys(formValidations)) {
+      console.log(formField)
       const [fn, errorMessage] = formValidations[formField]
 
       formCheckedValues[`${formField}Valid`] = fn(formState[formField])

@@ -23,10 +23,10 @@ export function Register() {
   const {
     displayName,
     email,
-    isDisplayNameValid,
-    isEmailValid,
-    isFormValid,
-    isPasswordValid,
+    displayNameValid,
+    emailValid,
+    formValid,
+    passwordValid,
     onInputChange,
     password
   } = useForm(formData, formValidations)
@@ -44,8 +44,8 @@ export function Register() {
           <Grid item sx={{ mt: 2 }} xs={12}>
             <TextField
               fullWidth
-              error={!isDisplayNameValid}
-              helperText={isDisplayNameValid}
+              error={!displayNameValid}
+              helperText={displayNameValid}
               label='Name'
               name='displayName'
               placeholder='Type your name'

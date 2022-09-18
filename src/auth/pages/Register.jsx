@@ -4,14 +4,34 @@ import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { useForm } from '../../hooks'
 import { Auth } from '../layout'
 
-const FormData = {
+const formData = {
   displayName: 'Test1',
   email: 'test1@test.com',
   password: '123456'
 }
 
+const formValidations = {
+  displayName: [(value) => value.length >= 2, 'Name is required.'],
+  email: [(value) => value.includes('@'), 'Email must have an @'],
+  password: [
+    (value) => value.length >= 6,
+    'Password must have more than 6 letters.'
+  ]
+}
+
 export function Register() {
-  const { displayName, email, password, onInputChange } = useForm(FormData)
+  const {
+    displayName,
+    email,
+    isDisplayNameValid,
+    isEmailValid,
+    isFormValid,
+    isPasswordValid,
+    onInputChange,
+    password
+  } = useForm(formData, formValidations)
+
+  console.log(displayNameValid)
 
   const onSubmit = (evt) => {
     evt.preventDefault()
@@ -24,6 +44,8 @@ export function Register() {
           <Grid item sx={{ mt: 2 }} xs={12}>
             <TextField
               fullWidth
+              error={!isDisplayNameValid}
+              helperText={isDisplayNameValid}
               label='Name'
               name='displayName'
               placeholder='Type your name'

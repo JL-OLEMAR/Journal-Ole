@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useMemo, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
-import { Button, Grid, Link, TextField, Typography } from '@mui/material'
+import { Alert, Button, Grid, Link, TextField, Typography } from '@mui/material'
 
 import { startCreatingUserWithEmailPassword } from '../../store/auth'
 import { useForm } from '../../hooks'
@@ -25,6 +25,11 @@ const formValidations = {
 export function Register() {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const dispatch = useDispatch()
+  const { status, errorMessage } = useSelector((state) => state.auth)
+  const isCheckingAuthentication = useMemo(
+    () => status === 'checking',
+    [status]
+  )
 
   const {
     displayName,
@@ -92,8 +97,17 @@ export function Register() {
           </Grid>
 
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
+            <Grid item display={!!errorMessage ? '' : 'none'} xs={12}>
+              <Alert severity='error'>{errorMessage}</Alert>
+            </Grid>
+
             <Grid item xs={12}>
-              <Button fullWidth type='submit' variant='contained'>
+              <Button
+                fullWidth
+                disabled={isCheckingAuthentication}
+                type='submit'
+                variant='contained'
+              >
                 Create an account
               </Button>
             </Grid>

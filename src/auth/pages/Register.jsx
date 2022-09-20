@@ -37,6 +37,7 @@ export function Register() {
   const onSubmit = (evt) => {
     evt.preventDefault()
     setFormSubmitted(true)
+    if (!isFormValid) return
   }
 
   return (

@@ -45,10 +45,10 @@ export function useForm(initialForm = {}, formValidations = {}) {
 
   return {
     ...formState,
-    formState,
-    onInputChange,
-    onResetForm,
     ...formValidation,
-    isFormValid
+    formState,
+    isFormValid,
+    onInputChange,
+    onResetForm
   }
 }

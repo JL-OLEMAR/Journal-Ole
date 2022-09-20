@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 
@@ -5,9 +6,9 @@ import { useForm } from '../../hooks'
 import { Auth } from '../layout'
 
 const formData = {
-  displayName: 'Test1',
-  email: 'test1@test.com',
-  password: '123456'
+  displayName: '',
+  email: '',
+  password: ''
 }
 
 const formValidations = {
@@ -20,21 +21,22 @@ const formValidations = {
 }
 
 export function Register() {
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
   const {
     displayName,
-    email,
     displayNameValid,
+    email,
     emailValid,
-    formValid,
-    passwordValid,
+    isFormValid,
     onInputChange,
-    password
+    password,
+    passwordValid
   } = useForm(formData, formValidations)
-
-  console.log(displayNameValid)
 
   const onSubmit = (evt) => {
     evt.preventDefault()
+    setFormSubmitted(true)
   }
 
   return (
@@ -44,7 +46,7 @@ export function Register() {
           <Grid item sx={{ mt: 2 }} xs={12}>
             <TextField
               fullWidth
-              error={!displayNameValid}
+              error={!!displayNameValid && formSubmitted}
               helperText={displayNameValid}
               label='Name'
               name='displayName'
@@ -58,6 +60,8 @@ export function Register() {
           <Grid item sx={{ mt: 2 }} xs={12}>
             <TextField
               fullWidth
+              error={!!emailValid && formSubmitted}
+              helperText={emailValid}
               label='E-mail'
               name='email'
               placeholder='Type your email'
@@ -70,6 +74,8 @@ export function Register() {
           <Grid item sx={{ mt: 2 }} xs={12}>
             <TextField
               fullWidth
+              error={!!passwordValid && formSubmitted}
+              helperText={passwordValid}
               label='Password'
               name='password'
               placeholder='Type your password'

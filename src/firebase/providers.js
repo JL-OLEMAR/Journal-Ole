@@ -1,7 +1,8 @@
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  updateProfile
 } from 'firebase/auth'
 
 import { FirebaseAuth } from './config.js'
@@ -36,7 +37,7 @@ export async function registerUserWithEmailPassword({
     )
     const { uid, photoURL } = resp.user
 
-    // TODO: Update displayName in firebase
+    await updateProfile(FirebaseAuth.currentUser, { displayName })
 
     return {
       ok: true,

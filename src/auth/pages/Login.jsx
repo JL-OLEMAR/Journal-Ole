@@ -1,20 +1,23 @@
 import { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
-import { Button, Grid, Link, TextField, Typography } from '@mui/material'
+import { Alert, Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { Google } from '@mui/icons-material'
 
 import { useForm } from '../../hooks'
-import { checkingAuthentication, startGoogleSignIn } from '../../store/auth'
+import {
+  startGoogleSignIn,
+  startLoginWithEmailPassword
+} from '../../store/auth'
 import { Auth } from '../layout'
 
 export function Login() {
-  const { status } = useSelector((state) => state.auth)
+  const { status, errorMessage } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
 
   const { email, password, onInputChange } = useForm({
-    email: '',
-    password: ''
+    email: 'test1@test.com',
+    password: '123456'
   })
 
   // for disable button when status is checking
@@ -22,7 +25,7 @@ export function Login() {
 
   const onSubmit = (evt) => {
     evt.preventDefault()
-    dispatch(checkingAuthentication())
+    dispatch(startLoginWithEmailPassword({ email, password }))
   }
 
   const onGoogleSignIn = () => {
@@ -58,6 +61,10 @@ export function Login() {
           </Grid>
 
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
+            <Grid item display={!!errorMessage ? '' : 'none'} xs={12}>
+              <Alert severity='error'>{errorMessage}</Alert>
+            </Grid>
+
             <Grid item sm={6} xs={12}>
               <Button
                 fullWidth

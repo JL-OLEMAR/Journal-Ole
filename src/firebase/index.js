@@ -1,1 +1,1 @@
-export { signInWithGoogle, registerUserWithEmailPassword } from './providers.js'
+export * from './providers.js'

@@ -71,3 +71,7 @@ export async function loginWithEmailPassword({ email, password }) {
     return { ok: false, errorMessage }
   }
 }
+
+export async function logoutFirebase() {
+  return await FirebaseAuth.signOut()
+}

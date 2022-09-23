@@ -12,8 +12,11 @@ import {
   Typography
 } from '@mui/material'
 import { TurnedInNot } from '@mui/icons-material'
+import { useSelector } from 'react-redux'
 
 export function SideBar({ drawerWidth = 240 }) {
+  const { displayName } = useSelector((state) => state.auth)
+
   return (
     <Box component='nav' sx={{ width: drawerWidth, flexShrink: { sm: 0 } }}>
       <Drawer
@@ -26,7 +29,7 @@ export function SideBar({ drawerWidth = 240 }) {
       >
         <Toolbar>
           <Typography noWrap component='div' variant='h6'>
-            José Olemar
+            {displayName}
           </Typography>
         </Toolbar>
         <Divider />

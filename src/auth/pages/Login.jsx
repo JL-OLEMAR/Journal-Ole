@@ -16,8 +16,8 @@ export function Login() {
   const dispatch = useDispatch()
 
   const { email, password, onInputChange } = useForm({
-    email: 'test1@test.com',
-    password: '123456'
+    email: '',
+    password: ''
   })
 
   // for disable button when status is checking

@@ -8,6 +8,7 @@ export function Note() {
     <Grid
       container
       alignItems='center'
+      className='animate__animated animate__fadeIn animate__faster'
       direction='row'
       justifyContent='space-between'
       sx={{ mb: 1 }}

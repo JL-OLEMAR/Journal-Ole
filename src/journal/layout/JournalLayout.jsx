@@ -6,7 +6,10 @@ const drawerWidth = 280 // px - width of drawer, for show and hide sidebar
 
 export function JournalLayout({ children }) {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box
+      className='animate__animated animate__fadeIn animate__faster'
+      sx={{ display: 'flex' }}
+    >
       <Navbar drawerWidth={drawerWidth} />
       <SideBar drawerWidth={drawerWidth} />
 

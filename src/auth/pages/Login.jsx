@@ -34,7 +34,10 @@ export function Login() {
 
   return (
     <Auth title='Login'>
-      <form onSubmit={onSubmit}>
+      <form
+        className='animate__animated animate__fadeIn animate__faster'
+        onSubmit={onSubmit}
+      >
         <Grid container>
           <Grid item sx={{ mt: 2 }} xs={12}>
             <TextField

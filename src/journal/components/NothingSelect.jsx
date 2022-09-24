@@ -6,6 +6,7 @@ export function NothingSelect() {
     <Grid
       container
       alignItems='center'
+      className='animate__animated animate__fadeIn animate__faster'
       direction='column'
       justifyContent='center'
       spacing={0}

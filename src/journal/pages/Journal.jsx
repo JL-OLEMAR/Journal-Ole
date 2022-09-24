@@ -15,8 +15,8 @@ export function Journal() {
         officia. Quis sint fugiat do amet ad qui irure minim ea aliqua.
       </Typography> */}
 
-      {/* <NothingSelect /> */}
-      <Note />
+      <NothingSelect />
+      {/* <Note /> */}
 
       <IconButton
         size='large'

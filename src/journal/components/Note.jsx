@@ -1,9 +1,20 @@
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import { SaveOutlined } from '@mui/icons-material'
+import { useSelector } from 'react-redux'
+
+import { useForm } from '../../hooks'
 
 import { ImageGallery } from './ImageGallery.jsx'
 
 export function Note() {
+  const { active: note } = useSelector((state) => state.journal)
+
+  const { title, body, onInputChange } = useForm({
+    title: note.title,
+    body: note.body,
+    date: note.date
+  })
+
   return (
     <Grid
       container
@@ -30,19 +41,25 @@ export function Note() {
         <TextField
           fullWidth
           label='Title'
+          name='title'
           placeholder='Write a title'
           sx={{ mb: 1, border: 'none' }}
           type='text'
+          value={title}
           variant='filled'
+          onChange={onInputChange}
         />
 
         <TextField
           fullWidth
           multiline
           minRows={5}
+          name='body'
           placeholder='What happened today?'
           type='text'
+          value={body}
           variant='filled'
+          onChange={onInputChange}
         />
       </Grid>
 

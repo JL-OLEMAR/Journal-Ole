@@ -53,7 +53,7 @@ export function startLoginWithEmailPassword({ email, password }) {
 }
 
 export function startLogout() {
-  return async () => {
+  return async (dispatch) => {
     await logoutFirebase()
     dispatch(logout())
   }

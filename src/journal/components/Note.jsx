@@ -1,6 +1,7 @@
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import { SaveOutlined } from '@mui/icons-material'
 import { useSelector } from 'react-redux'
+import { useMemo } from 'react'
 
 import { useForm } from '../../hooks'
 
@@ -9,11 +10,21 @@ import { ImageGallery } from './ImageGallery.jsx'
 export function Note() {
   const { active: note } = useSelector((state) => state.journal)
 
-  const { title, body, onInputChange } = useForm({
+  const { title, body, date, onInputChange } = useForm({
     title: note.title,
     body: note.body,
     date: note.date
   })
+
+  const dateString = useMemo(() => {
+    const newDate = new Date(date)
+
+    return newDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }, [date])
 
   return (
     <Grid
@@ -26,7 +37,7 @@ export function Note() {
     >
       <Grid item>
         <Typography fontSize={39} fontWeight='light'>
-          August 28, 2023
+          {dateString}
         </Typography>
       </Grid>
 

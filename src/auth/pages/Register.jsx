@@ -7,12 +7,14 @@ import { startCreatingUserWithEmailPassword } from '../../store/auth'
 import { useForm } from '../../hooks'
 import { Auth } from '../layout'
 
+// Lazy initialization
 const formData = {
   displayName: '',
   email: '',
   password: ''
 }
 
+// Lazy initialization
 const formValidations = {
   displayName: [(value) => value.length >= 2, 'Name is required.'],
   email: [(value) => value.includes('@'), 'Email must have an @'],

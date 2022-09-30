@@ -11,14 +11,17 @@ import {
 } from '../../store/auth'
 import { Auth } from '../layout'
 
+// Lazy initialization
+const formData = {
+  email: '',
+  password: ''
+}
+
 export function Login() {
   const { status, errorMessage } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
 
-  const { email, password, onInputChange } = useForm({
-    email: '',
-    password: ''
-  })
+  const { email, password, onInputChange } = useForm(formData)
 
   // for disable button when status is checking
   const isAuthenticating = useMemo(() => status === 'checking', [status])

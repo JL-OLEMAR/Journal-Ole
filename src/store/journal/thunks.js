@@ -38,16 +38,3 @@ export function startLoadingNotes() {
     dispatch(setNotes(notes))
   }
 }
-
-export function selectedActiveNode() {
-  return async (dispatch) => {
-    const notesRef = collection(FirebaseDB, 'notes')
-
-    console.log(notesRef)
-
-    const note = await setDoc(doc(notesRef, '9UAZYtKvJ8fd6BOASqOB'))
-
-    console.log(`noteThunks:' ${note}`)
-    // dispatch(setActiveNote(note))
-  }
-}

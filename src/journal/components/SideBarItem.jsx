@@ -11,7 +11,7 @@ import { TurnedInNot } from '@mui/icons-material'
 
 import { setActiveNote } from '../../store/journal'
 
-export function SideBarItem({ body, date, id, imageUrls, title = '' }) {
+export function SideBarItem({ body, date, id, imageUrls = [], title = '' }) {
   const dispatch = useDispatch()
 
   const newTitle = useMemo(() => {

@@ -6,7 +6,11 @@ import Swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2.css'
 
 import { useForm } from '../../hooks'
-import { setActiveNote, startSaveNote } from '../../store/journal'
+import {
+  setActiveNote,
+  startSaveNote,
+  startUploadingFiles
+} from '../../store/journal'
 
 import { ImageGallery } from './ImageGallery.jsx'
 
@@ -46,8 +50,7 @@ export function Note() {
 
   const onFileInputChange = ({ target }) => {
     if (target.files === 0) return
-    console.log('upload images')
-    // dispatch(startUploadingFiles(target.files))
+    dispatch(startUploadingFiles(target.files))
   }
 
   return (

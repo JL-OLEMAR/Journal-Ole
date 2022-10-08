@@ -121,7 +121,7 @@ export function Note() {
         />
       </Grid>
 
-      <ImageGallery />
+      <ImageGallery images={note.imageUrls} />
     </Grid>
   )
 }

@@ -4,6 +4,7 @@ import {
   loginWithEmailPassword,
   logoutFirebase
 } from '../../firebase'
+import { clearNotesLogout } from '../journal/journalSlice.js'
 
 import { checkingCredentials, login, logout } from './authSlice.js'
 
@@ -55,6 +56,7 @@ export function startLoginWithEmailPassword({ email, password }) {
 export function startLogout() {
   return async (dispatch) => {
     await logoutFirebase()
+    dispatch(clearNotesLogout())
     dispatch(logout())
   }
 }

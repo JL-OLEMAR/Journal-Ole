@@ -1,5 +1,6 @@
 export async function fileUpload(file) {
-  if (!file) throw new Error("We don't have any file to upload")
+  // if (!file) throw new Error("We don't have any file to upload")
+  if (!file) return null
 
   const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/olemar/upload'
   const formData = new FormData() // for send key/value as headers
@@ -18,7 +19,8 @@ export async function fileUpload(file) {
 
     return cloudResp.secure_url
   } catch (error) {
-    console.log(error)
-    throw new Error(error.message)
+    // console.log(error)
+    // throw new Error(error.message)
+    return null
   }
 }

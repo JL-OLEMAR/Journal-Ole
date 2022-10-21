@@ -8,7 +8,7 @@ import {
   authenticatedState,
   demoUser,
   initialState
-} from '../../fixtures/authFixtures.js'
+} from '../fixtures/authFixtures.js'
 
 describe('Tests in authSlice', () => {
   test('should return the initial state and be called "auth"', () => {

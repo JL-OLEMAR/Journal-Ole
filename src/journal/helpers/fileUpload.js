@@ -1,15 +1,17 @@
+import { getEnvironments } from '../../helpers/getEnvironments.js'
+
 export async function fileUpload(file) {
   // if (!file) throw new Error("We don't have any file to upload")
   if (!file) return null
 
-  const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/olemar/upload'
+  const { VITE_APP_CLOUDINARY_URL } = getEnvironments()
   const formData = new FormData() // for send key/value as headers
 
   formData.append('upload_preset', 'react-journal-course')
   formData.append('file', file)
 
   try {
-    const resp = await fetch(cloudinaryUrl, {
+    const resp = await fetch(VITE_APP_CLOUDINARY_URL, {
       method: 'POST',
       body: formData
     })

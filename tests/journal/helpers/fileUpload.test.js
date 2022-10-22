@@ -1,12 +1,19 @@
 import { fetch } from 'whatwg-fetch'
 import { v2 as cloudinary } from 'cloudinary'
 
+import { getEnvironments } from '../../../src/helpers/getEnvironments.js'
 import { fileUpload } from '../../../src/journal/helpers/fileUpload.js'
 
+const {
+  VITE_CLOUDINARY_CLOUD_NAME,
+  VITE_CLOUDINARY_API_KEY,
+  VITE_CLOUDINARY_API_SECRET
+} = getEnvironments()
+
 cloudinary.config({
-  cloud_name: 'olemar',
-  api_key: '787521131833568',
-  api_secret: '6-KjeN-x8c2QK1xpVgyuhUeRDeo',
+  cloud_name: VITE_CLOUDINARY_CLOUD_NAME,
+  api_key: VITE_CLOUDINARY_API_KEY,
+  api_secret: VITE_CLOUDINARY_API_SECRET,
   secure: true
 })
 

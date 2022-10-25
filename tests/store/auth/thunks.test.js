@@ -34,7 +34,7 @@ describe('Tests in AuthThunks', () => {
   test('startGoogleSignIn should call checkingCredentials and login', async () => {
     const loginData = { ok: true, ...demoUser }
 
-    // from firebase
+    // from firebase, mockResolvedValue for promises
     await signInWithGoogle.mockResolvedValue(loginData)
 
     // from AuthThunk

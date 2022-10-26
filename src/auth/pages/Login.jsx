@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
 import { Alert, Button, Grid, Link, TextField, Typography } from '@mui/material'
-import { Google } from '@mui/icons-material'
+import GoogleIcon from '@mui/icons-material/Google'
 
 import { useForm } from '../../hooks'
 import {
@@ -89,7 +89,7 @@ export function Login() {
                 variant='contained'
                 onClick={onGoogleSignIn}
               >
-                <Google />
+                <GoogleIcon />
                 <Typography sx={{ ml: 1 }}>Google</Typography>
               </Button>
             </Grid>

@@ -1,11 +1,9 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Grid, IconButton, TextField, Typography } from '@mui/material'
-import {
-  DeleteOutline,
-  SaveOutlined,
-  UploadOutlined
-} from '@mui/icons-material'
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined'
+import UploadOutlinedIcon from '@mui/icons-material/UploadOutlined'
 import Swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2.css'
 
@@ -90,7 +88,7 @@ export function Note() {
           disabled={isSaving}
           onClick={() => fileInputRef.current.click()}
         >
-          <UploadOutlined />
+          <UploadOutlinedIcon />
         </IconButton>
 
         <Button
@@ -99,7 +97,7 @@ export function Note() {
           sx={{ padding: 2 }}
           onClick={onSaveNote}
         >
-          <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
+          <SaveOutlinedIcon sx={{ fontSize: 30, mr: 1 }} />
           Save
         </Button>
       </Grid>
@@ -132,7 +130,7 @@ export function Note() {
 
       <Grid container justifyContent='end'>
         <Button color='error' sx={{ mt: 2 }} onClick={onDelete}>
-          <DeleteOutline />
+          <DeleteOutlineIcon />
           Delete
         </Button>
       </Grid>

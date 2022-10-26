@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material'
-import { StarOutline } from '@mui/icons-material'
+import StarOutlineIcon from '@mui/icons-material/StarOutline'
 
 export function NothingSelect() {
   return (
@@ -17,7 +17,7 @@ export function NothingSelect() {
       }}
     >
       <Grid item xs={12}>
-        <StarOutline sx={{ fontSize: 100, color: 'white' }} />
+        <StarOutlineIcon sx={{ fontSize: 100, color: 'white' }} />
       </Grid>
 
       <Grid item xs={12}>

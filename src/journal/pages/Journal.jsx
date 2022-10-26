@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { IconButton } from '@mui/material'
-import { AddOutlined } from '@mui/icons-material'
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
 
 import { startNewNote } from '../../store/journal'
 import { Note, NothingSelect } from '../components'
@@ -31,7 +31,7 @@ export function Journal() {
         }}
         onClick={onClickNewNote}
       >
-        <AddOutlined sx={{ fontSize: 30 }} />
+        <AddOutlinedIcon sx={{ fontSize: 30 }} />
       </IconButton>
     </JournalLayout>
   )

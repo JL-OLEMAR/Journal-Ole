@@ -7,7 +7,7 @@ import {
   ListItemIcon,
   ListItemText
 } from '@mui/material'
-import { TurnedInNot } from '@mui/icons-material'
+import TurnedInNotIcon from '@mui/icons-material/TurnedInNot'
 
 import { setActiveNote } from '../../store/journal'
 
@@ -26,7 +26,7 @@ export function SideBarItem({ body, date, id, imageUrls = [], title = '' }) {
     <ListItem disablePadding>
       <ListItemButton onClick={onClickNote}>
         <ListItemIcon>
-          <TurnedInNot />
+          <TurnedInNotIcon />
         </ListItemIcon>
 
         <Grid container>

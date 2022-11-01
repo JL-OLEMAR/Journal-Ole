@@ -55,6 +55,7 @@ export function Register() {
   return (
     <Auth title='Sign up'>
       <form
+        aria-label='register-form'
         className='animate__animated animate__fadeIn animate__faster'
         onSubmit={onSubmit}
       >
@@ -92,6 +93,7 @@ export function Register() {
               fullWidth
               error={!!passwordValid && formSubmitted}
               helperText={passwordValid}
+              inputProps={{ 'aria-label': 'password' }}
               label='Password'
               name='password'
               placeholder='Type your password'

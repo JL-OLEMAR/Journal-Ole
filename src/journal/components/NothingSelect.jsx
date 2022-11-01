@@ -21,7 +21,7 @@ export function NothingSelect() {
       </Grid>
 
       <Grid item xs={12}>
-        <Typography color='white' variant='h5'>
+        <Typography color='white' sx={{ textAlign: 'center' }} variant='h5'>
           Select or create an entry
         </Typography>
       </Grid>

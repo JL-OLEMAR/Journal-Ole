@@ -13,7 +13,11 @@ export function SideBar({ drawerWidth = 240 }) {
         open
         sx={{
           display: { xs: 'block' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: `${drawerWidth}px`,
+            position: 'initial'
+          }
         }}
         variant='permanent'
       >
